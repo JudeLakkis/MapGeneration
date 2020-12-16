@@ -25,11 +25,10 @@ def adjustment(iterations, x, y, persistence, scale, low=0, high=255):
     noise /= maxAmp
     return noise * (high - low) / 2 + (high + low) / 2
 
-def shaping(value):
+def shaping(x, y, value):
     distCenter = distance(x, y, WIDTH / 2, HEIGHT / 2)
     adjustedPosition = int(value * (1.0 - distCenter / (WIDTH / 1.9)))
-
-
+    return adjustedPosition
 
 def generate():
     image = Image.new('RGB', (WIDTH, HEIGHT))
@@ -42,7 +41,7 @@ def generate():
         for y in range(HEIGHT):
             value = adjustment(iterations, x, y, persistence, scale)
 
-            adjustedPosition = shaping(value)
+            adjustedPosition = shaping(x, y, value)
             color = applyColor(adjustedPosition)
             image.putpixel((x, y), color)
 
