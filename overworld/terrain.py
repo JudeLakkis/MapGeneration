@@ -6,7 +6,7 @@ chart = {
     70 : (34, 139, 34), # Grassland
     95 : (36, 110, 27), # Woodlands
     120 : (87, 83, 74), # Mountains
-    160 : (36, 36, 36), # Mountain Peaks
+    170 : (36, 36, 36), # Mountain Peaks
     255 : (255, 250, 250) # Snow
 }
 
